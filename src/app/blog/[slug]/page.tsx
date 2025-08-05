@@ -6,11 +6,11 @@ import { ArrowLeft } from 'lucide-react';
 
 export const revalidate = 3600;
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+// type PageProps = {
+//   params: {
+//     slug: string;
+//   };
+// };
 
 // Generate static paths for blog slugs
 export async function generateStaticParams() {
@@ -21,8 +21,8 @@ export async function generateStaticParams() {
 }
 
 // Main Blog Post Page
-export default async function BlogPostPage({ params }: Props) {
-  const posts = await getBlogPosts();
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+   const posts = await getBlogPosts();
   const post = posts.find((p) => p.slug === params.slug);
 
   if (!post) {
