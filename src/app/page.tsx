@@ -1,103 +1,137 @@
-import Image from "next/image";
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Code, School, Plane, ArrowRight, Zap, Combine } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="py-20 md:py-32 bg-gradient-to-br from-[#f0f4ff] to-[#ffffff] text-center overflow-hidden">
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl font-extrabold font-headline text-primary mb-6 leading-tight animate-fade-in-down">
+            Innovative Software Solutions for Business Growth
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            At webYatra Solutions, we craft customized websites, powerful apps, and AI-driven tools to propel your business into the future.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md">
+              <Link href="/services">Our Services <ArrowRight className="ml-2 h-5 w-5" /></Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-2">
+              <Link href="/contact">Get a Quote</Link>
+            </Button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Services Overview */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold font-headline mb-2">Our Core Offerings</h2>
+            <p className="text-muted-foreground">Solutions tailored to meet your unique business needs.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Custom Web & App Development',
+                icon: Code,
+                description: 'Bespoke digital solutions designed to deliver results and elevate your brand.',
+                href: '/services',
+              },
+              {
+                title: 'CampusConnect School ERP',
+                icon: School,
+                description: 'A comprehensive management solution for schools and colleges, all in one place.',
+                href: '/products/campus-connect',
+              },
+              {
+                title: 'AI Travel Planner',
+                icon: Plane,
+                description: 'An intelligent, ready-to-sell application that revolutionizes travel planning.',
+                href: '/products/travel-planner',
+              },
+            ].map((feature) => (
+              <Card key={feature.title} className="transform hover:scale-105 transition-transform duration-300 shadow-md">
+                <CardHeader>
+                  <div className="bg-primary/10 text-primary rounded-full p-3 w-fit mb-4">
+                    <feature.icon className="h-8 w-8" />
+                  </div>
+                  <CardTitle className="font-headline text-lg">{feature.title}</CardTitle>
+                  <CardDescription>{feature.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button asChild variant="link" className="p-0 h-auto">
+                    <Link href={feature.href}>Learn More <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Mockup Generator CTA */}
+      <section className="py-20 bg-gradient-to-r from-accent to-accent/70 text-accent-foreground">
+        <div className="container mx-auto px-4">
+          <div className="bg-white rounded-lg p-8 md:p-12 flex flex-col md:flex-row items-center justify-between shadow-xl">
+            <div className="md:w-2/3 mb-6 md:mb-0">
+              <h2 className="text-3xl font-bold font-headline mb-2">Visualize Your Website Instantly</h2>
+              <p className="text-muted-foreground">
+                Use our AI-powered tool to generate a mockup for your website. Just describe your business, and let our AI do the magic.
+              </p>
+            </div>
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white">
+              <Link href="/mockup-generator">Start Your Design <Zap className="ml-2 h-5 w-5" /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            <div className="lg:w-1/2">
+              <Image 
+                src="/Digital-transformation-for-organisations-1080x609.jpg"
+                alt="Team collaborating"
+                width={600}
+                height={400}
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+            <div className="lg:w-1/2">
+              <h2 className="text-3xl font-bold font-headline mb-4">Your Partner in Digital Transformation</h2>
+              <p className="text-muted-foreground mb-6">We don't just build software; we build relationships. Our team is dedicated to understanding your vision and turning it into a digital reality that drives success.</p>
+              <div className="space-y-6">
+                {[{
+                  icon: Combine,
+                  title: 'Tailored Solutions',
+                  desc: 'Every project is unique. We provide solutions that are perfectly aligned with your business goals.',
+                }, {
+                  icon: Zap,
+                  title: 'Cutting-Edge Technology',
+                  desc: 'We leverage the latest technologies and AI to give you a competitive edge.',
+                }].map((item) => (
+                  <div key={item.title} className="flex items-start">
+                    <div className="bg-primary/10 text-primary rounded-full p-2 mr-4">
+                      <item.icon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold font-headline">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
