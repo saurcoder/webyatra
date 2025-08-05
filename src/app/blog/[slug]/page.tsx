@@ -6,12 +6,13 @@ import { ArrowLeft } from 'lucide-react';
 
 export const revalidate = 3600;
 
-type PageProps = {
+type Props = {
   params: {
     slug: string;
   };
 };
 
+// Generate static paths for blog slugs
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
   return posts.map((post) => ({
@@ -19,7 +20,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogPostPage({ params }: PageProps) {
+// Main Blog Post Page
+export default async function BlogPostPage({ params }: Props) {
   const posts = await getBlogPosts();
   const post = posts.find((p) => p.slug === params.slug);
 
@@ -49,13 +51,15 @@ export default async function BlogPostPage({ params }: PageProps) {
               </p>
             </header>
 
-            <Image
-              src={post.image}
-              alt={post.title}
-              width={1200}
-              height={600}
-              className="w-full h-auto object-cover rounded-lg shadow-lg mb-8"
-            />
+            {post.image && (
+              <Image
+                src={post.image}
+                alt={post.title}
+                width={1200}
+                height={600}
+                className="w-full h-auto object-cover rounded-lg shadow-lg mb-8"
+              />
+            )}
 
             <div
               className="prose prose-xl max-w-none text-foreground/90 prose-h2:text-3xl prose-h3:text-2xl prose-p:leading-relaxed"
