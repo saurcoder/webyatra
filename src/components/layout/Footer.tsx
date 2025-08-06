@@ -104,11 +104,11 @@ const Footer = () => {
           <div>
             <h4 className="text-base font-semibold font-headline mb-4 text-foreground">Company</h4>
             <ul className="space-y-2">
-              <li>
+              {/* <li>
                 <Link href="/blog" className="text-sm hover:text-primary">
                   Blog
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/contact" className="text-sm hover:text-primary">
                   Contact Us

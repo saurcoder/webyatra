@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'webYatra Solutions Hub',
     description: 'Innovative Software Solutions for Your Business Growth',
   },
-  description: 'Innovative Software Solutions for Your Business Growth',
+  // description: 'Innovative Software Solutions for Your Business Growth',
 };
 
 export default function RootLayout({

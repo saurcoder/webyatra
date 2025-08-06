@@ -1,5 +1,7 @@
+// "use client";
 import { ContactForm } from '@/components/ContactForm';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { Suspense } from 'react';
 
 export default function ContactPage() {
   return (
@@ -75,7 +77,9 @@ export default function ContactPage() {
             <div>
               <h2 className="text-2xl font-bold font-headline mb-6">Send us a Message</h2>
               <div className="bg-background p-6 rounded-lg shadow-inner">
-                <ContactForm />
+                <Suspense fallback={<div>Loading form...</div>}>
+                  <ContactForm />
+                </Suspense>
               </div>
             </div>
           </div>

@@ -23,7 +23,7 @@ import { cn } from "@/lib/utils";
 
 const mainNav = [
   { href: "/services", label: "Services" },
-  { href: "/blog", label: "Blog" },
+  // { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 
